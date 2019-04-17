@@ -13,11 +13,6 @@ class Plugin(Pluggable):
 
     def _execute(self):
         # Display data
-        DBManager().display_table("Persons")
-
-        print()
-
-        # build table:
-        DBManager().build_table("Employee", "ID int", "Name varchar(255)")
-
-
+        rows = DBManager().execute_query("SELECT name FROM sys.database_principals")
+        for row in rows:
+            print(row)

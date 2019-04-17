@@ -1,7 +1,10 @@
 import importlib
-PLUGIN_NAME = "plugins.dbPlugin"
+PLUGINS = "dbPlugin", "osPlugin", "dbUserPlugin"
 
-plugin_module = importlib.import_module(PLUGIN_NAME, ".")
-plugin = plugin_module.Plugin("Hello", key=123)
-print(plugin.execute(1, 2))
+for plugin in PLUGINS:
+    print("***** Plugin: {} *****".format(plugin))
+    plugin_module = importlib.import_module("plugins."+plugin, ".")
+    plugin_exe = plugin_module.Plugin()
+    plugin_exe.execute()
+    print()
 

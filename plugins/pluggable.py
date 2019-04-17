@@ -1,6 +1,7 @@
+
 class Pluggable(object):
     def __init__(self, *args, **kwargs):
-        print("Pluggable class")
+        pass
 
-    def execute(self, a, b):
-        return self._execute(a, b)
+    def execute(self, *args, **kwargs):
+        return self._execute()
